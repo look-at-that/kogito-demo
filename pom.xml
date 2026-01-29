@@ -8,15 +8,18 @@
     <properties>
         <compiler-plugin.version>3.14.1</compiler-plugin.version>
         <maven.compiler.release>21</maven.compiler.release>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <quarkus-plugin.version>3.16.2</quarkus-plugin.version>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+        <quarkus.platform.version>3.16.2</quarkus.platform.version>
+        <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
+        <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
+        <kogito.bom.version>2.44.0.Alpha</kogito.bom.version>
+        <version.org.kie.kogito>2.44.0.Alpha</version.org.kie.kogito>
         <quarkus.platform.version>3.16.2</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
     </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -26,22 +29,31 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>${kogito.bom.group-id}</groupId>
+                <artifactId>${kogito.bom.artifact-id}</artifactId>
+                <version>${kogito.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.kie.kogito</groupId>
             <artifactId>kogito-quarkus</artifactId>
-            <version>2.44.0.Alpha</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-h2</artifactId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -49,12 +61,14 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-arc</artifactId>
+            <artifactId>quarkus-jdbc-postgresql</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm</artifactId>
+            <groupId>org.kie.kogito</groupId>
+            <artifactId>kogito-addons-quarkus-data-index-mongodb</artifactId>
         </dependency>
+
+        <!--Tests -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
