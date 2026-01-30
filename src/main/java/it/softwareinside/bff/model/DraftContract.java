@@ -1,11 +1,15 @@
 package it.softwareinside.bff.model;
 
-public class ContractTask {
+import java.io.Serializable;
+
+import org.apache.commons.lang3.StringUtils;
+
+public class DraftContract implements Serializable {
 
     private String id;
     private String customerName;
 
-    public ContractTask(String id, String customerName) {
+    public DraftContract(String id, String customerName) {
         this.id = id;
         this.customerName = customerName;
     }
@@ -32,5 +36,10 @@ public class ContractTask {
                 "id='" + id + '\'' +
                 ", customerName='" + customerName + '\'' +
                 '}';
+    }
+
+    public boolean isValid() {
+        return StringUtils.isNotEmpty(customerName) &&
+                StringUtils.isNotEmpty(id);
     }
 }

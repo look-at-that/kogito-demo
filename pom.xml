@@ -68,8 +68,12 @@
         </dependency>
         <dependency>
             <groupId>org.kie</groupId>
-            <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>
+            <artifactId>kie-addons-quarkus-process-svg</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.kie</groupId>-->
+<!--            <artifactId>kogito-addons-quarkus-data-index-inmemory</artifactId>-->
+<!--        </dependency>-->
 
         <!--Tests -->
         <dependency>
