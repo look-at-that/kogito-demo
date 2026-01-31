@@ -2,6 +2,7 @@ package it.softwareinside.bff.application.service;
 
 import java.util.UUID;
 
+import it.softwareinside.bff.domain.exception.RequestChecksFailedException;
 import it.softwareinside.bff.domain.model.ContractRequest;
 import it.softwareinside.bff.domain.repository.ContractRequestsRepository;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -19,6 +20,16 @@ public class ContractRequestsService {
     public ContractRequest createContractRequest(ContractRequest request) {
         request.setContractId(UUID.randomUUID().toString());
         repository.saveOrUpdate(request);
+        return request;
+    }
+
+
+    @Transactional
+    public ContractRequest validate(ContractRequest request) {
+        if(true) {
+            throw new RequestChecksFailedException("Checks for request failed...");
+        }
+
         return request;
     }
 
