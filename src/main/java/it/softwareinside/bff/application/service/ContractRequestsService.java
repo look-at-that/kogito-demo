@@ -2,7 +2,6 @@ package it.softwareinside.bff.application.service;
 
 import java.util.UUID;
 
-import it.softwareinside.bff.domain.exception.RequestChecksFailedException;
 import it.softwareinside.bff.domain.model.ContractRequest;
 import it.softwareinside.bff.domain.repository.ContractRequestsRepository;
 import jakarta.enterprise.context.ApplicationScoped;
