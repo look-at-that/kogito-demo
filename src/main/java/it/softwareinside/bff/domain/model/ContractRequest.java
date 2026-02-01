@@ -45,7 +45,7 @@ public class ContractRequest implements Serializable {
         var errors = new ArrayList<String>();
 
         if(this.getMaximumAmount() == null) {
-            errors.add("Mandatory minimum amount is null");
+            errors.add("Mandatory maximum amount is null");
         }
 
         if(!errors.isEmpty()) {
