@@ -23,14 +23,4 @@ public class ContractRequestsService {
         return request;
     }
 
-
-    @Transactional
-    public ContractRequest validate(ContractRequest request) {
-        if(true) {
-            throw new RequestChecksFailedException("Checks for request failed...");
-        }
-
-        return request;
-    }
-
 }
